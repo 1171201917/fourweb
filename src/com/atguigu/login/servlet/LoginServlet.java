@@ -30,13 +30,13 @@ public class LoginServlet extends HttpServlet{
 		
 		String username = req.getParameter("uname");
 		String password  = req.getParameter("upwd");
-		
+		Integer id=0;
 		
 		resp.setContentType("text/html;charset=utf-8");
 		PrintWriter out=resp.getWriter();
 		
 		UserDao userDao = new UserDaoImpl();
-		User user = userDao.getUserByUsernameAndPassword(username, password);
+		User user = userDao.getUserByUsernameAndPassword(username, password,id);
 		if(user == null)
 		{
 			out.print("<h1>µÇÂ¼Ê§°Ü</h1>");
@@ -47,7 +47,10 @@ public class LoginServlet extends HttpServlet{
 			rd.forward(req, resp);
 		}
 		else {
+			id=user.getId();
+			out.print(id);
 			req.setAttribute("login_msg", username);
+			req.setAttribute("idname", id.toString());
 			RequestDispatcher rd = req.getRequestDispatcher("form.jsp");
 			rd.forward(req, resp);
 		}

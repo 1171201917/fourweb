@@ -7,6 +7,15 @@ public class UserT {
 	private String nextweek;
 	private String nexttime;
 	private String tosay;
+	private String id;
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	
 	public String getTime() {
 		return time;
 	}
@@ -19,7 +28,7 @@ public class UserT {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String thisweek() {
+	public String getThisweek() {
 		return thisweek;
 	}
 	public void setThisweek(String thisweek) {

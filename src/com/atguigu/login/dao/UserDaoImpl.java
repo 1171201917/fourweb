@@ -41,7 +41,7 @@ public class UserDaoImpl  implements UserDao{
 		
 		return null;
 	}
-	public User getUserByUsernameAndPassword(String uname, String upwd) {
+	public User getUserByUsernameAndPassword(String uname, String upwd,Integer id) {
 		// TODO Auto-generated method stub
 		try {
 			// a.导入驱动，加载具体的驱动类
@@ -55,7 +55,7 @@ public class UserDaoImpl  implements UserDao{
 //			DriverManager.registerDriver(driver);
 			Connection conn = DriverManager.getConnection(url,user,pawd);
 			// c.发送sql,执行
-			String sql = "select uname,upwd from userpwd where uname=? and upwd=?";
+			String sql = "select uname,upwd,id from userpwd where uname=? and upwd=?";
 			PreparedStatement ps= conn.prepareStatement(sql);
 			ps.setString(1, uname);
 			ps.setString(2, upwd);
@@ -67,6 +67,7 @@ public class UserDaoImpl  implements UserDao{
 				u=new User();
 				u.setUsername(rs.getString("uname"));
 				u.setPassword(rs.getString("upwd"));
+				u.setId(rs.getInt("id"));
 			}
 			return u;
 		}catch (Exception e) {
