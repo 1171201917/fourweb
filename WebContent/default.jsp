@@ -25,11 +25,11 @@
 			资料列表</h3>
 			<br>
 			<li>每周填写之资料：
-			<a target=_blank href="listEachWeek.asp?weekDiff=0">本周</a>、
-			<a target=_blank href="listEachWeek.asp?weekDiff=-1">前一周</a>、
-			<a target=_blank href="listEachWeek.asp?weekDiff=-2">前两周</a>、
-			<a target=_blank href="listEachWeek.asp?weekDiff=-3">前三周</a>、
-			<a target=_blank href="listEachWeek.asp?weekDiff=-4">前四周</a>
+			<a href="listEachWeek.jsp?weekDiff=0">本周</a>、
+			<a href="listEachWeek.jsp?weekDiff=-1">前一周</a>、
+			<a href="listEachWeek.jsp?weekDiff=-2">前两周</a>、
+			<a href="listEachWeek.jsp?weekDiff=-3">前三周</a>、
+			<a href="listEachWeek.jsp?weekDiff=-4">前四周</a>
 		<li>每个人的历史资料：
 		<%	
 				UserDao userDao = new UserDaoImpl();
@@ -45,9 +45,10 @@
 					else{
 						String s=user.getUsername();
 						session.setAttribute("s", s);//pageContext.setAttribute("s",s);
+						session.setAttribute("i", i);
 						if(s.equals(t))
 							break;%>
-							<a href="form.jsp?name=${sessionScope.s}">${sessionScope.s}</a>
+							<a href="listEachPerson.jsp?name=${sessionScope.i}">${sessionScope.s}</a>
 							<% 
 						//out.print("<a href=\"form.jsp\">"+s+"<\\a> ");
 						t=s;

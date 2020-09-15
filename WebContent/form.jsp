@@ -8,9 +8,11 @@
 <body>
 			<%
 				String loginMsg = (String) request.getAttribute("login_msg");
+				String idname = (String ) request.getAttribute("idname");
 				session.setAttribute("loginMsg", loginMsg);
+				session.setAttribute("idname", idname);
 			%>		
-		<center><h1>登录<%=loginMsg%>的本周工作进度</h1><br><a href=default.asp>回到主选单</a></center>
+		<center><h1>登录<%=loginMsg%>的本周工作进度</h1><br><a href=default.jsp>回到主选单</a></center>
 		<form method=post action="putin">
 		<table border=1 align=center>
 		<tr>
@@ -30,6 +32,7 @@
 		<th align=center><textarea name="tosay" rows="7" cols="20" ></textarea></th>
 		</table><center>
 		<input type="hidden"  name="name" value="${sessionScope.loginMsg}"/>
+		<input type="hidden"  name="idname" value="${sessionScope.idname}"/>
 		<input type=submit value="送出表单">
 		<input type=reset  value="恢复原值">
 		</center>
