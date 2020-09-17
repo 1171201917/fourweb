@@ -27,35 +27,8 @@
 				int i=1;
 				String t=null;
 				int a=0;
-				/*int h=1;
-				int p=0;
-				while(true)
-				{
-					User user = userDao.getUserById(h);
-					if(user == null)
-						break;
-					p++;
-					h++;
-				}*/
-				String dd = request.getParameter("weekDiff");
-				try {
-				     a = Integer.parseInt(dd);
-				} catch (NumberFormatException e) {
-				    e.printStackTrace();
-				}
-				String s=null;
-				if(a==0)
-				s="本周";
-				else if(a==-1)
-					s="前一周";
-				else if(a==-2)
-					s="前两周";
-				else if(a==-3)
-					s="前三周";
-				else s="前四周";
-				session.setAttribute("i", dd);
 		%>
-		 <center><h1>MIR 实验室工作进度：<%=s%>的全部登录资料</h1><br><a href=default.jsp>回到主选单</a></center>
+		 <center><h1>MIR 实验室工作进度：每个人的最後一笔资料</h1><br><a href=default.jsp>回到主选单</a></center>
 		<table border=1 align=center>
 		<tr>
 		<th align=center >姓名

@@ -25,15 +25,15 @@
 			资料列表</h3>
 			<br>
 			<li>每周填写之资料：
-			<a href="listEachWeek.jsp?weekDiff=0">本周</a>、
-			<a href="listEachWeek.jsp?weekDiff=-1">前一周</a>、
-			<a href="listEachWeek.jsp?weekDiff=-2">前两周</a>、
-			<a href="listEachWeek.jsp?weekDiff=-3">前三周</a>、
-			<a href="listEachWeek.jsp?weekDiff=-4">前四周</a>
+			<a href="listEachWeek.jsp?weekDiff=0?n=${sessionScope.p }">本周</a>、
+			<a href="listEachWeek.jsp?weekDiff=-1?n=${sessionScope.p }">前一周</a>、
+			<a href="listEachWeek.jsp?weekDiff=-2?n=${sessionScope.p }">前两周</a>、
+			<a href="listEachWeek.jsp?weekDiff=-3?n=${sessionScope.p }">前三周</a>、
+			<a href="listEachWeek.jsp?weekDiff=-4?n=${sessionScope.p }">前四周</a>
 		<li>每个人的历史资料：
 		<%	
 				UserDao userDao = new UserDaoImpl();
-		int i=1;
+		int i=1;int p=0;
 				String t=null;
 				while(1>0)
 				{
@@ -54,9 +54,11 @@
 						t=s;
 					}
 					i++;
-					
+					p++;
 				}
+				session.setAttribute("p", p);
 		%>
+		<li><a href="listAllPersonLastRecord.jsp">每个人的最后一笔资料</a>
 	</body>
 </html>
 

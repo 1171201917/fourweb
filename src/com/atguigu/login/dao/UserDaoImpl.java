@@ -33,6 +33,7 @@ public class UserDaoImpl  implements UserDao{
 				u.setUsername(rs.getString("uname"));
 				u.setPassword(rs.getString("upwd"));
 			}
+			rs.close();
 			return u;
 		}catch (Exception e) {
 			// TODO Auto-generated catch block
