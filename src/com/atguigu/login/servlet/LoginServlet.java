@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet{
 		
 		resp.setContentType("text/html;charset=utf-8");
 		PrintWriter out=resp.getWriter();
-		
+		req.setAttribute("username", username);
 		UserDao userDao = new UserDaoImpl();
 		User user = userDao.getUserByUsernameAndPassword(username, password,id);
 		if(user == null)
@@ -49,9 +49,8 @@ public class LoginServlet extends HttpServlet{
 		else {
 			id=user.getId();
 			out.print(id);
-			req.setAttribute("login_msg", username);
 			req.setAttribute("idname", id.toString());
-			RequestDispatcher rd = req.getRequestDispatcher("form.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("judge.jsp");
 			rd.forward(req, resp);
 		}
 	}

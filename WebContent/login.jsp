@@ -6,7 +6,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-		<center><h1>欢迎登录</h1></center><hr>
+		<center><h1>欢迎登录</h1></center>
+		<center><a href=default.jsp>回到主选单</a></center><hr>
 		<form action="login" method="post" >
 			<center><img src="redball.gif">用户名：<input type="text" name="uname">
 			<%

@@ -73,7 +73,7 @@
 				{
 					k++;
 					String o=""+k;
-					UserT userT= userthing.readbyidday(o, a);
+					UserT userT= userthing.readbyidday(o,a);
 					/*if(k==p)
 						break;*/
 					if(userT==null)

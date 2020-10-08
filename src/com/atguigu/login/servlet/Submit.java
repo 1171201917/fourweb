@@ -50,7 +50,7 @@ public class Submit extends HttpServlet {
 				String nexttime = req.getParameter("nexttime");
 				String tosay    = req.getParameter("tosay");
 				String id = req.getParameter("idname");
-				 SimpleDateFormat dateFormat = new SimpleDateFormat(" yyyy-MM-dd ");
+				 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 				 Date date= new Date();
 				 
 				 int i =getWeekOfDate(date);
@@ -65,6 +65,7 @@ public class Submit extends HttpServlet {
 				PrintWriter out=resp.getWriter();
 				Userthing userthing = new UserthingGp();
 				UserT usert = userthing.Putin(time,name,thisweek,nextweek,nexttime,tosay,id);
+				req.setAttribute("name", name);
 				RequestDispatcher rd = req.getRequestDispatcher("default.jsp");
 				rd.forward(req, resp);
 	}
